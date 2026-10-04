@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Magic ✨</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            font-family: Georgia, serif;
+
+            background:
+                radial-gradient(circle at 20% 20%,
+                    rgba(244, 207, 220, 0.55),
+                    transparent 35%),
+
+                radial-gradient(circle at 80% 80%,
+                    rgba(215, 210, 238, 0.55),
+                    transparent 35%),
+
+                linear-gradient(135deg,
+                    #fffaf8,
+                    #f8f4fa,
+                    #fffdf9);
+
+            overflow: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+        }
+
+        .little-text {
+            font-family: Arial, sans-serif;
+
+            font-size: 14px;
+
+            letter-spacing: 3px;
+
+            color: #9b8491;
+
+            margin-bottom: 25px;
+        }
+
+        .gift {
+            font-size: 120px;
+
+            cursor: pointer;
+
+            display: inline-block;
+
+            animation:
+                floating 3s ease-in-out infinite;
+
+            transition:
+                transform 0.4s ease;
+        }
+
+        .gift:hover {
+            transform:
+                scale(1.12) rotate(-3deg);
+        }
+
+        h1 {
+            margin-top: 20px;
+
+            font-size: 48px;
+
+            font-weight: 500;
+
+            color: #6c5967;
+        }
+
+        .caption {
+            margin-top: 15px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 17px;
+
+            color: #9a7f90;
+
+            animation:
+                breathing 2.5s ease-in-out infinite;
+        }
+
+        .sparkle {
+            position: fixed;
+
+            pointer-events: none;
+
+            opacity: 0.5;
+
+            font-size: 20px;
+
+            animation:
+                sparkleFloat 5s linear infinite;
+        }
+
+        .s1 {
+            top: 15%;
+            left: 15%;
+        }
+
+        .s2 {
+            top: 25%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .s3 {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 2s;
+        }
+
+        .s4 {
+            bottom: 15%;
+            right: 20%;
+            animation-delay: 3s;
+        }
+
+        @keyframes floating {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes breathing {
+
+            0%,
+            100% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes sparkleFloat {
+
+            0% {
+                transform:
+                    translateY(30px) rotate(0deg);
+
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform:
+                    translateY(-100px) rotate(180deg);
+
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .gift {
+                font-size: 90px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .caption {
+                font-size: 15px;
+            }
+
+            .little-text {
+                font-size: 11px;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="sparkle s1">✦</div>
+    <div class="sparkle s2">✧</div>
+    <div class="sparkle s3">✦</div>
+    <div class="sparkle s4">✧</div>
+
+
+    <div class="container">
+
+        <div class="little-text">
+            A LITTLE SURPRISE IS WAITING FOR YOU
+        </div>
+
+
+        <div class="gift" onclick="showMagic()">
+
+            🎁
+
+        </div>
+
+
+        <h1>
+            A Little Magic ✨
+        </h1>
+
+
+        <p class="caption">
+            Press here to see the magic
+        </p>
+
+    </div>
+
+
+    <script>
+
+        function showMagic() {
+
+            document.body.style.transition = "opacity 0.6s ease";
+
+            document.body.style.opacity = "0";
+
+            setTimeout(function () {
+
+                window.location.href = "dates.html";
+
+            }, 600);
+
+        }
+
+    </script>
+
+</body>
+
+</html>

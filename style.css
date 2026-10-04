@@ -1,0 +1,857 @@
+/* =========================
+   BASIC RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family: "Poppins", sans-serif;
+
+    color: #514b57;
+
+    background:
+        radial-gradient(circle at 20% 20%,
+        rgba(245, 221, 229, 0.55),
+        transparent 35%),
+
+        radial-gradient(circle at 80% 70%,
+        rgba(220, 226, 246, 0.6),
+        transparent 35%),
+
+        linear-gradient(
+        135deg,
+        #fffaf9,
+        #f8f7fc,
+        #fffdf9
+        );
+}
+
+/* =========================
+   COMMON
+========================= */
+
+.background-glow {
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 225, 236, 0.35);
+
+    filter: blur(80px);
+
+    top: -120px;
+    right: -100px;
+
+    pointer-events: none;
+}
+
+.small-intro {
+    font-size: 0.85rem;
+
+    letter-spacing: 2px;
+
+    color: #9c8c99;
+
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(
+        2.5rem,
+        6vw,
+        4.5rem
+    );
+
+    font-weight: 600;
+
+    color: #5d5260;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================
+   HOME
+========================= */
+
+.home-page {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.home-container {
+    position: relative;
+
+    width: 100%;
+
+    padding: 30px;
+}
+
+.gift-wrapper {
+    display: inline-block;
+
+    margin: 25px auto;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.5s ease;
+}
+
+.gift-wrapper:hover {
+    transform: translateY(-10px) scale(1.03);
+}
+
+/* Gift box */
+
+.gift-box {
+    position: relative;
+
+    width: 180px;
+    height: 150px;
+
+    margin: auto;
+}
+
+/* Gift body */
+
+.gift-body {
+    position: absolute;
+
+    width: 150px;
+    height: 110px;
+
+    bottom: 0;
+    left: 15px;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e7aebd,
+            #c995aa
+        );
+
+    box-shadow:
+        0 20px 45px
+        rgba(150, 100, 120, 0.22);
+}
+
+/* Lid */
+
+.gift-lid {
+    position: absolute;
+
+    width: 170px;
+    height: 35px;
+
+    top: 10px;
+    left: 5px;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #edbdca,
+            #d39bac
+        );
+
+    z-index: 3;
+}
+
+/* Vertical ribbon */
+
+.vertical-ribbon {
+    position: absolute;
+
+    width: 25px;
+    height: 100%;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: rgba(255, 244, 220, 0.85);
+}
+
+/* Horizontal ribbon */
+
+.horizontal-ribbon {
+    position: absolute;
+
+    width: 100%;
+    height: 20px;
+
+    top: 45px;
+
+    background: rgba(255, 244, 220, 0.85);
+}
+
+/* Bow */
+
+.gift-bow {
+    position: absolute;
+
+    top: -5px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 5;
+}
+
+.gift-bow span {
+    position: absolute;
+
+    width: 50px;
+    height: 30px;
+
+    border: 7px solid #e2b7a7;
+
+    border-radius: 50% 50% 20% 50%;
+}
+
+.gift-bow span:first-child {
+    right: 2px;
+
+    transform: rotate(25deg);
+}
+
+.gift-bow span:last-child {
+    left: 2px;
+
+    transform: rotate(-25deg);
+}
+
+.magic-caption {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 1.4rem;
+
+    color: #806b78;
+
+    letter-spacing: 0.5px;
+
+    animation: gentlePulse 2.5s infinite;
+}
+
+/* =========================
+   FLASH
+========================= */
+
+#flash {
+    position: fixed;
+
+    inset: 0;
+
+    background: white;
+
+    z-index: 9999;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+#flash.active {
+    animation: flashAnimation 0.9s ease;
+}
+
+@keyframes flashAnimation {
+
+    0% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* =========================
+   DATES PAGE
+========================= */
+
+.dates-page {
+    min-height: 100vh;
+
+    text-align: center;
+}
+
+.dates-container {
+    width: min(1100px, 92%);
+
+    margin: auto;
+
+    padding: 70px 20px;
+}
+
+.date-description {
+    margin: 10px auto 35px;
+
+    line-height: 1.8;
+
+    color: #8b818c;
+}
+
+.month-title {
+    display: inline-block;
+
+    padding: 8px 30px;
+
+    margin-bottom: 35px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,0.65);
+
+    border: 1px solid rgba(220,200,215,0.6);
+
+    box-shadow:
+        0 10px 30px
+        rgba(120,100,120,0.08);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 2rem;
+
+    color: #756274;
+}
+
+/* Cloud grid */
+
+.cloud-calendar {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 25px;
+
+    max-width: 900px;
+
+    margin: auto;
+}
+
+/* Cloud dates */
+
+.cloud-calendar button {
+    border: none;
+
+    cursor: pointer;
+
+    height: 70px;
+
+    border-radius: 50%;
+
+    position: relative;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1rem;
+
+    color: #706b78;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #eef2f8
+        );
+
+    box-shadow:
+        0 10px 25px
+        rgba(120,120,150,0.13);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Make clouds visually softer */
+
+.cloud-calendar button::before {
+    content: "";
+
+    position: absolute;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    top: -5px;
+    left: 18px;
+
+    z-index: -1;
+}
+
+.cloud-calendar button:hover {
+    transform:
+        translateY(-7px)
+        scale(1.06);
+
+    box-shadow:
+        0 15px 35px
+        rgba(120,100,140,0.2);
+}
+
+#date-result {
+    margin-top: 35px;
+
+    min-height: 60px;
+
+    font-size: 0.95rem;
+
+    color: #9c687a;
+}
+
+/* =========================
+   GIFT PAGE
+========================= */
+
+.gift-page {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.gift-container {
+    padding: 30px;
+}
+
+.gift-description {
+    margin: 15px 0 25px;
+
+    color: #8e858f;
+}
+
+.mini-gift {
+    font-size: 6rem;
+
+    margin: 20px;
+
+    animation:
+        floatingGift 2.5s ease-in-out infinite;
+}
+
+.main-button {
+    display: inline-block;
+
+    padding: 15px 28px;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c99aaa,
+            #a99bc5
+        );
+
+    box-shadow:
+        0 12px 30px
+        rgba(150,120,150,0.22);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.main-button:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 35px
+        rgba(150,120,150,0.3);
+}
+
+/* =========================
+   BIRTHDAY PAGE
+========================= */
+
+.birthday-page {
+    min-height: 100vh;
+
+    text-align: center;
+
+    position: relative;
+}
+
+.birthday-container {
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 850px;
+
+    margin: auto;
+
+    padding:
+        70px 20px;
+}
+
+.teacher-image-wrapper {
+    width: 250px;
+    height: 250px;
+
+    margin: 25px auto;
+
+    padding: 8px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ead1d8,
+            #ddd6ed,
+            #f3dfcf
+        );
+
+    box-shadow:
+        0 20px 50px
+        rgba(120,100,130,0.2);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.5s ease;
+}
+
+.teacher-image-wrapper:hover {
+    transform:
+        scale(1.05)
+        rotate(1deg);
+}
+
+.teacher-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid #fff;
+}
+
+.touch-text {
+    margin-top: 12px;
+
+    font-size: 0.8rem;
+
+    letter-spacing: 1px;
+
+    color: #9c909a;
+}
+
+.hidden-message {
+    max-height: 0;
+
+    opacity: 0;
+
+    overflow: hidden;
+
+    transition:
+        max-height 1s ease,
+        opacity 0.8s ease;
+
+    margin-top: 25px;
+}
+
+.hidden-message.show {
+    max-height: 900px;
+
+    opacity: 1;
+}
+
+.message-card {
+    padding: 35px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,0.65);
+
+    backdrop-filter: blur(15px);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.8);
+
+    box-shadow:
+        0 20px 60px
+        rgba(100,90,120,0.12);
+}
+
+.message-icon {
+    font-size: 2rem;
+
+    margin-bottom: 10px;
+}
+
+.message-card h2 {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 2rem;
+
+    color: #685c68;
+
+    margin-bottom: 20px;
+}
+
+.message-card p {
+    max-width: 650px;
+
+    margin:
+        12px auto;
+
+    line-height: 1.9;
+
+    color: #766e78;
+}
+
+.final-wish {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 1.3rem;
+
+    color: #8a6576 !important;
+}
+
+.signature {
+    margin-top: 25px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 1.2rem;
+
+    color: #806875;
+}
+
+/* =========================
+   FALLING FLOWERS / HEARTS
+========================= */
+
+.falling-elements {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+.falling-elements span {
+    position: absolute;
+
+    top: -50px;
+
+    font-size: 1.5rem;
+
+    opacity: 0.7;
+
+    animation:
+        falling 8s linear infinite;
+}
+
+.falling-elements span:nth-child(1) {
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.falling-elements span:nth-child(2) {
+    left: 15%;
+    animation-delay: 2s;
+}
+
+.falling-elements span:nth-child(3) {
+    left: 27%;
+    animation-delay: 4s;
+}
+
+.falling-elements span:nth-child(4) {
+    left: 38%;
+    animation-delay: 1s;
+}
+
+.falling-elements span:nth-child(5) {
+    left: 50%;
+    animation-delay: 3s;
+}
+
+.falling-elements span:nth-child(6) {
+    left: 62%;
+    animation-delay: 5s;
+}
+
+.falling-elements span:nth-child(7) {
+    left: 73%;
+    animation-delay: 1.5s;
+}
+
+.falling-elements span:nth-child(8) {
+    left: 82%;
+    animation-delay: 3.5s;
+}
+
+.falling-elements span:nth-child(9) {
+    left: 90%;
+    animation-delay: 2.5s;
+}
+
+.falling-elements span:nth-child(10) {
+    left: 95%;
+    animation-delay: 4.5s;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes falling {
+
+    0% {
+        transform:
+            translateY(-50px)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(50vh)
+            translateX(30px)
+            rotate(180deg);
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            translateX(-30px)
+            rotate(360deg);
+    }
+}
+
+@keyframes gentlePulse {
+
+    0%, 100% {
+        opacity: 0.65;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes floatingGift {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .cloud-calendar {
+        grid-template-columns:
+            repeat(4, 1fr);
+
+        gap: 18px;
+    }
+
+    .cloud-calendar button {
+        height: 62px;
+    }
+
+    .teacher-image-wrapper {
+        width: 210px;
+        height: 210px;
+    }
+
+    .message-card {
+        padding: 25px 18px;
+    }
+
+    .gift-box {
+        transform: scale(0.85);
+    }
+
+    .dates-container {
+        padding-top: 45px;
+    }
+}
+
+/* Very small phones */
+
+@media (max-width: 400px) {
+
+    .cloud-calendar {
+        gap: 12px;
+    }
+
+    .cloud-calendar button {
+        height: 55px;
+
+        font-size: 0.85rem;
+    }
+
+    .teacher-image-wrapper {
+        width: 185px;
+        height: 185px;
+    }
+}
